@@ -61,10 +61,7 @@ public class Projeto {
     }
 
     public void alterarStatus(int opcao){
-        if (opcao == 1){
-            this.status = 1;
-        }
-        else if (opcao == 2){
+        if (opcao == 2){
             this.status = 2;
         }
         else if (opcao == 3){
