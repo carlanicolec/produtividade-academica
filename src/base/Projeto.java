@@ -1,25 +1,24 @@
 package base;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Projeto {
 
     private int id_projeto;
     private String titulo;
-    private Date data_inicio;
-    private Date data_termino;
+    private String data_inicio;
+    private String data_termino;
     private String agencia_financiadora;
     private double valor_financiado;
     private String objetivo;
     private String descricao;
     private int status; // 1 - Em elaboração; 2 - Em andamento; 3 - Concluido;
     private ArrayList<Usuario> alunos_participantes = new ArrayList<Usuario>();
-    private ArrayList<Professor> orientadores = new ArrayList<Professor>(); // tem q ter pelo menos 1
+    private ArrayList<Orientador> orientadores = new ArrayList<Orientador>(); // tem q ter pelo menos 1
     private ArrayList<Publicacoes> publicacoes_projeto = new ArrayList<Publicacoes>();
 
     //construtor com aluno, orientador e publicação
-    public Projeto(int id_projeto, String titulo, Date data_inicio, Date data_termino, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status, Aluno alunos_participantes, Professor orientadores, Publicacoes publicacoes_projeto) {
+    public Projeto(int id_projeto, String titulo, String data_inicio, String data_termino, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status, Aluno alunos_participantes, Professor orientadores, Publicacoes publicacoes_projeto) {
         this.id_projeto = id_projeto;
         this.titulo = titulo;
         this.data_inicio = data_inicio;
@@ -34,7 +33,7 @@ public class Projeto {
         this.publicacoes_projeto.add(publicacoes_projeto);
     }
 
-    public Projeto(int id_projeto, String titulo, Date data_inicio, Date data_termino, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status) {
+    public Projeto(int id_projeto, String titulo, String data_inicio, String data_termino, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status) {
         this.id_projeto = id_projeto;
         this.titulo = titulo;
         this.data_inicio = data_inicio;
@@ -53,8 +52,8 @@ public class Projeto {
         this.alunos_participantes.add(aluno);
     }
 
-    public void addOrientador(Professor prof){
-        this.orientadores.add(prof);
+    public void addOrientador(Orientador orientador){
+        this.orientadores.add(orientador);
     }
 
     public void addPublicacao (Publicacoes publicacao){
@@ -89,19 +88,19 @@ public class Projeto {
         this.titulo = titulo;
     }
 
-    public Date getData_inicio() {
+    public String getData_inicio() {
         return data_inicio;
     }
 
-    public void setData_inicio(Date data_inicio) {
+    public void setData_inicio(String data_inicio) {
         this.data_inicio = data_inicio;
     }
 
-    public Date getData_termino() {
+    public String getData_termino() {
         return data_termino;
     }
 
-    public void setData_termino(Date data_termino) {
+    public void setData_termino(String data_termino) {
         this.data_termino = data_termino;
     }
 
@@ -153,11 +152,11 @@ public class Projeto {
         this.alunos_participantes = alunos_participantes;
     }
 
-    public ArrayList<Professor> getOrientadores() {
+    public ArrayList<Orientador> getOrientadores() {
         return orientadores;
     }
 
-    public void setOrientadores(ArrayList<Professor> orientadores) {
+    public void setOrientadores(ArrayList<Orientador> orientadores) {
         this.orientadores = orientadores;
     }
 

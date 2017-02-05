@@ -11,15 +11,18 @@ public class Publicacoes {
     private String publicacao;
     private ArrayList<Usuario> participante_publicacao = new ArrayList<Usuario>();
 
-    private void addPublicacao(String titulo, String conferencia, int ano, int id, String publicacao, Usuario participante){
+    public Publicacoes(String titulo, String conferencia, int ano_publicacao, int id_projeto, String publicacao, Usuario participante_publicacao) {
         this.titulo = titulo;
         this.conferencia = conferencia;
-        this.ano_publicacao = ano;
-        this.id_projeto = id;
+        this.ano_publicacao = ano_publicacao;
+        this.id_projeto = id_projeto;
         this.publicacao = publicacao;
-        this.participante_publicacao.add(participante);
-
+        this.participante_publicacao.add(participante_publicacao);
     }
+
+    public Publicacoes() {
+    }
+
 
     private void addNovoParticipante(Usuario participante){
         this.participante_publicacao.add(participante);

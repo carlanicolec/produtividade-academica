@@ -20,6 +20,9 @@ public class Usuario {
         this.email = email;
     }
 
+    public Usuario() {
+    }
+
     public void addPublicacao(Publicacoes publicacao){
         this.publicacoes.add(publicacao);
     }
@@ -53,12 +56,11 @@ public class Usuario {
         this.publicacoes = publicacoes;
     }
 
-    public ArrayList<Projeto> getProjetos_passados() {
+    public ArrayList<Projeto> getProjetos() {
         return projetos;
     }
 
-    public void setProjetos_passados(ArrayList<Projeto> projetos_passados) {
-        this.projetos = projetos_passados;
+    public void setProjetos(ArrayList<Projeto> projetos) {
+        this.projetos = projetos;
     }
-
 }

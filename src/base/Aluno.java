@@ -14,6 +14,9 @@ public class Aluno extends Usuario {
         this.tipo_aluno = tipo_aluno;
     }
 
+    public Aluno() {
+    }
+
     public int getTipo_aluno() {
         return tipo_aluno;
     }
