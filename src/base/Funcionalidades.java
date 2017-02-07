@@ -3,11 +3,13 @@ package base;
 import java.util.Scanner;
 
 public class Funcionalidades {
+    Scanner scan = new Scanner(System.in);
 
-    public void addProjeto(){
-        Scanner scan = new Scanner(System.in);
+    public void addProjeto(Dados dados){
+
         System.out.println("Insira o Id do projeto:");
         int id = Integer.parseInt(scan.nextLine());
+
         System.out.println("Insira a data de início do projeto:");
         String data_inicio = scan.nextLine();
         System.out.println("Insira a data de término do projeto:");
@@ -23,9 +25,10 @@ public class Funcionalidades {
         System.out.println("Insira a descrição do projeto:");
         String descricao = scan.nextLine();
 
-        Dados dados = new Dados();
-
         Projeto novo_projeto = new Projeto(id, titulo, data_inicio, data_termino, agencia, valor, objetivo, descricao, 1);
+        dados.addProjeto(novo_projeto);
+
+        dados.printTituloProjeto();
 
         System.out.println("Nome do orientador:\n");
         String nome_orientador = scan.nextLine();
@@ -35,6 +38,7 @@ public class Funcionalidades {
                 "1 - Professor\n" +
                 "2 - Pesquisador\n");
         int tipo_orientador = Integer.parseInt(scan.nextLine());
+
         if (tipo_orientador == 1) {
             Professor novo_prof = new Professor(nome_orientador, email_orientador);
             novo_projeto.addOrientador(novo_prof);
@@ -46,17 +50,12 @@ public class Funcionalidades {
             novo_pesq.addNovoProjeto(novo_projeto);
             dados.todos_usuarios.add(novo_pesq);
         }
-
     }
 
-
-
-    public void addAlunoProjeto(int id_projeto) {
-        Dados dados = new Dados();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("entrou");
+    public void addAlunoProjeto(int id_projeto, Dados dados) {
 
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
+
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
                 System.out.println("Nome do aluno:\n");
                 String nome_aluno = scan.nextLine();
@@ -66,21 +65,22 @@ public class Funcionalidades {
                         "1 - Aluno de graduação\n" +
                         "2 - Aluno de mestrado\n" +
                         "3 - Aluno de doutorado\n");
+
                 int tipo_aluno = Integer.parseInt(scan.nextLine());
+
                 Aluno novo_aluno = new Aluno(nome_aluno, email_aluno, tipo_aluno);
+
                 dados.todos_projetos.get(i).addAluno(novo_aluno);
                 novo_aluno.addNovoProjeto(dados.todos_projetos.get(i));
                 dados.todos_usuarios.add(novo_aluno);
-
-
             }
         }
     }
 
-    public void addOrientadorProjeto(int id_projeto) {
-        Dados dados = new Dados();
-        Scanner scan = new Scanner(System.in);
+    public void addOrientadorProjeto(int id_projeto, Dados dados) {
+
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
+
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
                 System.out.println("Nome do Orientador:\n");
                 String nome_orientador = scan.nextLine();
@@ -89,7 +89,9 @@ public class Funcionalidades {
                 System.out.println("Tipo orientador: \n" +
                         "1 - Professor\n" +
                         "2 - Pesquisador\n");
+
                 int tipo_orientador = Integer.parseInt(scan.nextLine());
+
                 if (tipo_orientador == 1) {
                     Professor novo_prof = new Professor(nome_orientador, email_orientador);
                     dados.todos_projetos.get(i).addOrientador(novo_prof);
@@ -105,8 +107,7 @@ public class Funcionalidades {
         }
     }
 
-    public void alterarStatusProjeto(int id_projeto) {
-        Dados dados = new Dados();
+    public void alterarStatusProjeto(int id_projeto, Dados dados) {
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
                 int status = dados.todos_projetos.get(i).getStatus();
@@ -118,8 +119,8 @@ public class Funcionalidades {
                     dados.todos_projetos.get(i).alterarStatus(3);
                     System.out.println("Status alterado para 'Concluído'");
                 }
-
             }
         }
     }
+
 }
