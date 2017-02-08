@@ -11,9 +11,11 @@ public class Dados {
     public void addProjeto(Projeto novo_projeto){
         this.todos_projetos.add(novo_projeto);
     }
+
     public void addPublicacao(Publicacoes nova_publicacao){
         this.todas_publicacoes.add(nova_publicacao);
     }
+
     public void addUsuario(Usuario novo_usuario){
         this.todos_usuarios.add(novo_usuario);
     }
@@ -25,12 +27,14 @@ public class Dados {
            System.out.println(todos_usuarios.get(i).getNome());
         }
     }
+
     public void printEmailUsuario(){
         for(int i = 0; i < todos_usuarios.size(); i++){
             System.out.println(todos_usuarios.get(i).getEmail());
         }
 
     }
+
     public void printProjetosUsuario(){
         for(int i = 0; i < todos_usuarios.size(); i++){
             System.out.println(todos_usuarios.get(i).getProjetos());
@@ -39,7 +43,6 @@ public class Dados {
 
     public void printPublicacoesUsuario(){
         for(int i = 0; i < todos_usuarios.size(); i++){
-            System.out.println(todos_usuarios.get(i).getPublicacoes());
         }
     }
 

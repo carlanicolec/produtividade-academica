@@ -1,5 +1,7 @@
 import base.Dados;
 import base.Funcionalidades;
+import base.Pesquisador;
+import base.Professor;
 
 import java.util.Scanner;
 
@@ -11,42 +13,53 @@ public class Main {
         Dados dados = new Dados();
         Scanner scan = new Scanner(System.in);
         Funcionalidades nova_funcionalidade = new Funcionalidades();
+        Professor novo_prof = new Professor();
+        Pesquisador novo_pesq = new Pesquisador();
+
 
         while (opcao != 0) {
             System.out.println(" -- Sistema de Produtividade Acadêmica --\n\n" +
                     "1 - Criar Projeto\n" +
                     "2 - Editar Projeto\n" +
                     "3 - Incluir Publicação\n" +
-                    "4 - Editar Publicação\n" +
-                    "5 - Consultas\n" +
-                    "6 - Relatórios\n" +
+                    "4 - Consultas\n" +
+                    "5 - Relatórios\n" +
                     "0 - Sair\n");
 
            opcao = Integer.parseInt(scan.nextLine());
 
-            if (opcao == 1) {
-                nova_funcionalidade.addProjeto(dados);
-            } else if (opcao == 2) {
-                System.out.println("Escolha a opção desejada:\n" +
-                        "1 - Adicionar aluno\n" +
-                        "2 - Adicionar orientador" +
-                        "3 - Alterar status");
-                int opc = Integer.parseInt(scan.nextLine());
-
-                if (opc == 1){
-                    System.out.println("Informe o Id do projeto:\n");
-                    int id_projeto = Integer.parseInt(scan.nextLine());
-                    nova_funcionalidade.addAlunoProjeto(id_projeto, dados);
-                } else if (opc == 2){
-                    System.out.println("Informe o Id do projeto:\n");
-                    int id_projeto = Integer.parseInt(scan.nextLine());
-                    nova_funcionalidade.addOrientadorProjeto(id_projeto, dados);
-                } else if (opc  == 3) {
-                    System.out.println("Informe o Id do projeto:\n");
-                    int id_projeto = Integer.parseInt(scan.nextLine());
-                    nova_funcionalidade.alterarStatusProjeto(id_projeto, dados);
-                }
-            }
+           if (opcao == 1) {
+               nova_funcionalidade.addProjeto(dados);
+           }
+            else if (opcao == 2) {
+               System.out.println("Escolha a opção desejada:\n" +
+                       "1 - Adicionar aluno\n" +
+                       "2 - Adicionar orientador\n" +
+                       "3 - Alterar status");
+               int opc = Integer.parseInt(scan.nextLine());
+               if (opc == 1) {
+                   System.out.println("Informe o Id do projeto:\n");
+                   int id_projeto = Integer.parseInt(scan.nextLine());
+                   nova_funcionalidade.addAlunoProjeto(id_projeto, dados);
+               } else if (opc == 2) {
+                   System.out.println("Informe o Id do projeto:\n");
+                   int id_projeto = Integer.parseInt(scan.nextLine());
+                   System.out.println("Informe o tipo do orientador:\n 1 - Professor\n 2 - Pesquisador\n");
+                   int tipo_orientador = Integer.parseInt(scan.nextLine());
+                   if (tipo_orientador == 1) {
+                       nova_funcionalidade.addOrientadorProjeto(id_projeto, dados, novo_prof);
+                   } else if (tipo_orientador == 2) {
+                       nova_funcionalidade.addOrientadorProjeto(id_projeto, dados, novo_pesq);
+                   }
+               } else if (opc == 3) {
+                   System.out.println("Informe o Id do projeto:\n");
+                   int id_projeto = Integer.parseInt(scan.nextLine());
+                   nova_funcionalidade.alterarStatusProjeto(id_projeto, dados);
+               }
+           }
+           else if (opcao == 3) {
+               nova_funcionalidade.addPublicacao(dados);
+           }
         }
     }
 }

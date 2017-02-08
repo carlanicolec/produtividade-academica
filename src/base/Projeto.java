@@ -56,6 +56,12 @@ public class Projeto {
         this.orientadores.add(orientador);
     }
 
+//    public void addNovoOrientador(Orientador orientador){
+//        System.out.println("entrou");
+//        int size = orientadores.size();
+//        this.orientadores.add(size+1,orientador);
+//    }
+
     public void addPublicacao (Publicacoes publicacao){
         this.publicacoes_projeto.add(publicacao);
     }
@@ -68,6 +74,9 @@ public class Projeto {
             this.status = 3;
         }
     }
+
+
+
 
     public int getId_projeto() {
         return id_projeto;

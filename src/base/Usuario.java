@@ -48,12 +48,14 @@ public class Usuario {
         this.email = email;
     }
 
-    public ArrayList<Publicacoes> getPublicacoes() {
-        return publicacoes;
+    public void getPublicacoes()
+    {
+        for (int i = 0; i<publicacoes.size(); i++)
+        System.out.println(publicacoes.get(i).getTitulo());
     }
 
-    public void setPublicacoes(ArrayList<Publicacoes> publicacoes) {
-        this.publicacoes = publicacoes;
+    public void setPublicacoes(Publicacoes publicacao) {
+        this.publicacoes.add(publicacao);
     }
 
     public ArrayList<Projeto> getProjetos() {
