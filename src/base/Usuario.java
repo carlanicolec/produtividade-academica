@@ -31,6 +31,9 @@ public class Usuario {
         this.projetos.add(novo_projeto);
     }
 
+    public void printName(){
+        System.out.println(this.getNome());
+    }
 
     public String getNome() {
         return nome;

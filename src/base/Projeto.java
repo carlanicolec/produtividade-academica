@@ -14,6 +14,7 @@ public class Projeto {
     private String descricao;
     private int status; // 1 - Em elaboração; 2 - Em andamento; 3 - Concluido;
     private ArrayList<Usuario> alunos_participantes = new ArrayList<Usuario>();
+
     private ArrayList<Orientador> orientadores = new ArrayList<Orientador>(); // tem q ter pelo menos 1
     private ArrayList<Publicacoes> publicacoes_projeto = new ArrayList<Publicacoes>();
 
@@ -56,11 +57,6 @@ public class Projeto {
         this.orientadores.add(orientador);
     }
 
-//    public void addNovoOrientador(Orientador orientador){
-//        System.out.println("entrou");
-//        int size = orientadores.size();
-//        this.orientadores.add(size+1,orientador);
-//    }
 
     public void addPublicacao (Publicacoes publicacao){
         this.publicacoes_projeto.add(publicacao);
@@ -75,8 +71,23 @@ public class Projeto {
         }
     }
 
+    public void printAlunos(){
+       for (int i = 0; i<alunos_participantes.size(); i++){
+           alunos_participantes.get(i).printName();
+       }
+    }
 
+    public void printOrientadores(){
+        for(int i =0; i<orientadores.size();i++){
+            orientadores.get(i).printName();
+        }
+    }
 
+    public void printPublicacoes(){
+        for (int i = 0; i<publicacoes_projeto.size(); i++){
+            publicacoes_projeto.get(i).printName();
+        }
+    }
 
     public int getId_projeto() {
         return id_projeto;
@@ -150,16 +161,15 @@ public class Projeto {
         this.status = status;
     }
 
+    public ArrayList<Orientador> getOrientadores() {
+        return orientadores;
+    }
     public ArrayList<Usuario> getAlunos_participantes() {
         return alunos_participantes;
     }
 
     public void setAlunos_participantes(ArrayList<Usuario> alunos_participantes) {
         this.alunos_participantes = alunos_participantes;
-    }
-
-    public ArrayList<Orientador> getOrientadores() {
-        return orientadores;
     }
 
     public void setOrientadores(ArrayList<Orientador> orientadores) {

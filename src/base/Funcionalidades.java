@@ -30,15 +30,13 @@ public class Funcionalidades {
 
         dados.addProjeto(novo_projeto);
 
-        dados.printTituloProjeto();
-
         System.out.println("Nome do orientador:\n");
         String nome_orientador = scan.nextLine();
         System.out.println("Email do orientador:\n");
         String email_orientador = scan.nextLine();
         System.out.println("Tipo orientador:\n" +
                 "1 - Professor\n" +
-                "2 - Pesquisador\n");
+                "2 - Pesquisador");
         int tipo_orientador = Integer.parseInt(scan.nextLine());
 
         if (tipo_orientador == 1) {
@@ -55,8 +53,7 @@ public class Funcionalidades {
     }
 
     public void addAlunoProjeto(int id_projeto, Dados dados) {
-
-        for (int i = 0; i < dados.todos_projetos.size(); i++) {
+        for (int i = 1; i < dados.todos_projetos.size(); i++) {
 
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto && dados.todos_projetos.get(i).getStatus() == 1) {
                 System.out.println("Nome do aluno:\n");
@@ -75,8 +72,6 @@ public class Funcionalidades {
                 dados.todos_projetos.get(i).addAluno(novo_aluno);
                 novo_aluno.addNovoProjeto(dados.todos_projetos.get(i));
                 dados.todos_usuarios.add(novo_aluno);
-            }else{
-                System.out.println("Não foi possível adcionar o aluno a esse projeto\n");
             }
         }
     }
@@ -91,14 +86,14 @@ public class Funcionalidades {
                 String nome_orientador = scan.nextLine();
                 System.out.println("Email do Orientador:\n");
                 String email_orientador = scan.nextLine();
+                orientador.setNome(nome_orientador);
+                orientador.setEmail(email_orientador);
                 temp.addOrientador(orientador);
                 orientador.addNovoProjeto(dados.todos_projetos.get(i));
-
-            } else {
-                System.out.println("Projeto inexistente\n");
+                dados.todos_usuarios.add(orientador);
             }
         }
-        dados.printOrientadoresProjeto();
+       // dados.printOrientadoresProjeto(1);
     }
 
     public void alterarStatusProjeto(int id_projeto, Dados dados) {
@@ -110,8 +105,12 @@ public class Funcionalidades {
                     dados.todos_projetos.get(i).alterarStatus(2);
                     System.out.println("Status alterado para 'Em andamento'");
                 } else if (status == 2) {
-                    dados.todos_projetos.get(i).alterarStatus(3);
-                    System.out.println("Status alterado para 'Concluído'");
+                    if (dados.todos_projetos.get(i).getPublicacoes_projeto() != null) {
+                        dados.todos_projetos.get(i).alterarStatus(3);
+                        System.out.println("Status alterado para 'Concluído'");
+                    }else {
+                        System.out.println("Um projeto só pode ser concluído se houver pelo menos uma publicação associada a ele\n");
+                    }
                 }
             }
         }
@@ -139,8 +138,6 @@ public class Funcionalidades {
                 if (dados.todos_projetos.get(i).getId_projeto() == id && dados.todos_projetos.get(i).getStatus() == 1) {
                     dados.todos_projetos.get(i).addPublicacao(nova_publicacao);
                     System.out.println("Publicação adcionada com sucesso\n");
-                } else {
-                    System.out.println("Não foi possível adcionar a esse projeto\n");
                 }
             }
         }
@@ -148,8 +145,4 @@ public class Funcionalidades {
         dados.todas_publicacoes.add(nova_publicacao);
         dados.todos_usuarios.add(autor);
     }
-
-
-
-
 }

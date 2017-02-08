@@ -25,6 +25,9 @@ public class Publicacoes {
         this.participante_publicacao.add(participante);
     }
 
+    public void printName(){
+        System.out.println(this.getTitulo());
+    }
 
     public String getTitulo() {
         return titulo;

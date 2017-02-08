@@ -56,16 +56,24 @@ public class Dados {
     //projeto
 
 
-    public void printAlunosProjeto(){
+    public void printAlunosProjeto(int id){
         for (int i = 0; i < todos_projetos.size(); i++){
-            System.out.println(todos_projetos.get(i).getAlunos_participantes().get(i).getNome());
+            if (todos_projetos.get(i).getId_projeto() == id){
+                todos_projetos.get(i).printAlunos();
+            }
         }
     }
 
-    public void printOrientadoresProjeto(){
-        for (int i = 0; i < todos_projetos.size(); i++){
-            System.out.println(todos_projetos.get(i).getOrientadores().get(i).getNome());
+    public void printOrientadoresProjeto(int id) {
+        for (int i = 0; i < todos_projetos.size(); i++) {
+            if (todos_projetos.get(i).getId_projeto() == id) {
+                todos_projetos.get(i).printOrientadores();
+            }
         }
+    }
+
+    public void printPublicacoesProjeto(int id){
+
     }
 
     public void printPublicacoesProjeto(){

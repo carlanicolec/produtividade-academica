@@ -59,6 +59,57 @@ public class Main {
            }
            else if (opcao == 3) {
                nova_funcionalidade.addPublicacao(dados);
+
+           }else if (opcao == 5) {
+               System.out.println("Escolha o tipo de relatório desejado:\n" +
+                       "1 - Número de colaboradores\n" +
+                       "2 - Número de projetos em elaboração\n" +
+                       "3 - Número de projetos em andamento\n" +
+                       "4 - Número de projetos concluidos\n" +
+                       "5 - Número total de projetos\n" +
+                       "6 - Número de produção acadêmica por tipo de produção\n");
+
+               int escolha = Integer.parseInt(scan.nextLine());
+               if (escolha == 1) {
+                   System.out.println("Número de colaboradores" + dados.todos_usuarios.size());
+               } else if (escolha == 2) {
+                   int count = 0;
+                   for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                       if (dados.todos_projetos.get(i).getStatus() == 1) {
+                           count++;
+                       }
+                   }
+                   System.out.println("Número de projetos em elaboração" + count);
+
+               } else if (escolha == 3) {
+                   int count = 0;
+                   for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                       if (dados.todos_projetos.get(i).getStatus() == 2) {
+                           count++;
+                       }
+                   }
+                   System.out.println("Número de projetos em andamento" + count);
+
+               } else if (escolha == 4) {
+                   int count = 0;
+                   for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                       if (dados.todos_projetos.get(i).getStatus() == 3) {
+                           count++;
+                       }
+                   }
+                   System.out.println("Número de projetos concluídos" + count);
+
+               } else if (escolha == 5) {
+                   System.out.println("Número total de projetos" + dados.todos_projetos.size());
+               } else if (escolha == 6) {
+                   System.out.println("Escolha o tipo de produção desejada:\n 1 - Publicações\n 2 - Orientações\n");
+                   int choice = Integer.parseInt(scan.nextLine());
+                   if (choice == 1) { //publicacoes
+                       System.out.println("Número total de publicações" + dados.todas_publicacoes.size());
+                   } else if (choice == 2) {
+
+                   }
+               }
            }
         }
     }
