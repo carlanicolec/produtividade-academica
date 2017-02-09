@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Funcionalidades {
     Scanner scan = new Scanner(System.in);
     Projeto novo_projeto = new Projeto();
+    Professor novo_prof = new Professor();
+    Pesquisador novo_pesq = new Pesquisador();
 
     public void addProjeto(Dados dados){
 
@@ -53,8 +55,7 @@ public class Funcionalidades {
     }
 
     public void addAlunoProjeto(int id_projeto, Dados dados) {
-        for (int i = 1; i < dados.todos_projetos.size(); i++) {
-
+        for (int i = 0; i < dados.todos_projetos.size(); i++) {
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto && dados.todos_projetos.get(i).getStatus() == 1) {
                 System.out.println("Nome do aluno:\n");
                 String nome_aluno = scan.nextLine();
@@ -76,11 +77,37 @@ public class Funcionalidades {
         }
     }
 
-    public void addOrientadorProjeto(int id_projeto, Dados dados, Orientador orientador) {
+    public void editarProjeto(Dados dados){
+        System.out.println("Escolha a opção desejada:\n" +
+                "1 - Adicionar aluno\n" +
+                "2 - Adicionar orientador\n" +
+                "3 - Alterar status");
+        int opc = Integer.parseInt(scan.nextLine());
+        if (opc == 1) {
+            System.out.println("Informe o Id do projeto:\n");
+            int id_projeto = Integer.parseInt(scan.nextLine());
+            addAlunoProjeto(id_projeto, dados);
+        } else if (opc == 2) {
+            System.out.println("Informe o Id do projeto:\n");
+            int id_projeto = Integer.parseInt(scan.nextLine());
+            System.out.println("Informe o tipo do orientador:\n 1 - Professor\n 2 - Pesquisador\n");
+            int tipo_orientador = Integer.parseInt(scan.nextLine());
+            if (tipo_orientador == 1) {
+                addOrientadorProjeto(id_projeto, dados, novo_prof);
+            } else if (tipo_orientador == 2) {
+                addOrientadorProjeto(id_projeto, dados, novo_pesq);
+            }
+        } else if (opc == 3) {
+            System.out.println("Informe o Id do projeto:\n");
+            int id_projeto = Integer.parseInt(scan.nextLine());
+            alterarStatusProjeto(id_projeto, dados);
+        }
+    }
 
+    public void addOrientadorProjeto(int id_projeto, Dados dados, Orientador orientador) {
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
 
-            if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
+            if (dados.todos_projetos.get(i).getId_projeto() == id_projeto && dados.todos_projetos.get(i).getStatus() == 1) {
                 Projeto temp = dados.todos_projetos.get(i);
                 System.out.println("Nome do Orientador:\n");
                 String nome_orientador = scan.nextLine();
@@ -91,6 +118,10 @@ public class Funcionalidades {
                 temp.addOrientador(orientador);
                 orientador.addNovoProjeto(dados.todos_projetos.get(i));
                 dados.todos_usuarios.add(orientador);
+            }else if(dados.todos_projetos.get(i).getId_projeto() != id_projeto){
+                System.out.println("Id inválido\n");
+            }else if (dados.todos_projetos.get(i).getStatus() != 1){
+                System.out.println("Projeto não está na fase de elaboração, logo não podem ser feitas alterações\n");
             }
         }
        // dados.printOrientadoresProjeto(1);
@@ -131,18 +162,76 @@ public class Funcionalidades {
         Publicacoes nova_publicacao = new Publicacoes(titulo,conferencia, ano_publicacao, autor);
         System.out.println("Deseja atrelar a Publicação a um projeto existente?\n 1 - Sim\n 2 - Não\n");
         int opc = Integer.parseInt(scan.nextLine());
-        if (opc ==1){
+        if (opc ==1) {
             System.out.println("Informe o id do projeto\n");
             int id = Integer.parseInt(scan.nextLine());
             for (int i = 0; i < dados.todos_projetos.size(); i++) {
                 if (dados.todos_projetos.get(i).getId_projeto() == id && dados.todos_projetos.get(i).getStatus() == 1) {
                     dados.todos_projetos.get(i).addPublicacao(nova_publicacao);
                     System.out.println("Publicação adcionada com sucesso\n");
+                } else if (dados.todos_projetos.get(i).getId_projeto() != id) {
+                    System.out.println("Id inválido\n");
+                } else if (dados.todos_projetos.get(i).getStatus() != 1) {
+                    System.out.println("Projeto não está na fase de elaboração, logo não podem ser feitas alterações\n");
                 }
             }
+
         }
+
         autor.addPublicacao(nova_publicacao);
         dados.todas_publicacoes.add(nova_publicacao);
         dados.todos_usuarios.add(autor);
+    }
+
+    public void relatorios(Dados dados){
+        System.out.println("Escolha o tipo de relatório desejado:\n" +
+                "1 - Número de colaboradores\n" +
+                "2 - Número de projetos em elaboração\n" +
+                "3 - Número de projetos em andamento\n" +
+                "4 - Número de projetos concluidos\n" +
+                "5 - Número total de projetos\n" +
+                "6 - Número de produção acadêmica por tipo de produção\n");
+
+        int escolha = Integer.parseInt(scan.nextLine());
+        if (escolha == 1) {
+            System.out.println("Número de colaboradores" + dados.todos_usuarios.size());
+        } else if (escolha == 2) {
+            int count = 0;
+            for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                if (dados.todos_projetos.get(i).getStatus() == 1) {
+                    count++;
+                }
+            }
+            System.out.println("Número de projetos em elaboração" + count);
+
+        } else if (escolha == 3) {
+            int count = 0;
+            for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                if (dados.todos_projetos.get(i).getStatus() == 2) {
+                    count++;
+                }
+            }
+            System.out.println("Número de projetos em andamento" + count);
+
+        } else if (escolha == 4) {
+            int count = 0;
+            for (int i = 0; i < dados.todos_projetos.size(); i++) {
+                if (dados.todos_projetos.get(i).getStatus() == 3) {
+                    count++;
+                }
+            }
+            System.out.println("Número de projetos concluídos" + count);
+
+        } else if (escolha == 5) {
+            System.out.println("Número total de projetos" + dados.todos_projetos.size());
+        } else if (escolha == 6) {
+            System.out.println("Escolha o tipo de produção desejada:\n 1 - Publicações\n 2 - Orientações\n");
+            int choice = Integer.parseInt(scan.nextLine());
+            if (choice == 1) { //publicacoes
+                System.out.println("Número total de publicações" + dados.todas_publicacoes.size());
+            } else if (choice == 2) {
+
+            }
+        }
     }
 }
