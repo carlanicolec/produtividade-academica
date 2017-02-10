@@ -19,7 +19,7 @@
       <file leaf-file-name="Dados.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Dados.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
+            <state relative-caret-position="206">
               <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
               <folding>
                 <element signature="method#printUsuarios#0;class#Dados#0" expanded="false" />
@@ -33,21 +33,18 @@
       <file leaf-file-name="Aluno.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Aluno.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="31" />
-              <folding>
-                <element signature="method#Aluno#0;class#Aluno#0" expanded="false" />
-                <element signature="method#Aluno#1;class#Aluno#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+            <state relative-caret-position="342">
+              <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,10 +55,11 @@
       <file leaf-file-name="Pesquisador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Pesquisador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="43" lean-forward="false" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
               <folding>
-                <element signature="method#Pesquisador#0;class#Pesquisador#0" expanded="false" />
+                <element signature="e#288#289#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
                 <element signature="method#Pesquisador#2;class#Pesquisador#0" expanded="false" />
               </folding>
             </state>
@@ -71,21 +69,22 @@
       <file leaf-file-name="Orientador.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Orientador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
+            <state relative-caret-position="51">
+              <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
               <folding>
-                <element signature="method#Orientador#0;class#Orientador#0" expanded="false" />
+                <element signature="e#282#283#0" expanded="true" />
+                <element signature="e#321#322#0" expanded="true" />
                 <element signature="method#Orientador#2;class#Orientador#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Funcionalidades.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Funcionalidades.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/base/Funcionalidades.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="185" column="39" lean-forward="false" selection-start-line="185" selection-start-column="39" selection-end-line="185" selection-end-column="39" />
+            <state relative-caret-position="408">
+              <caret line="256" column="38" lean-forward="false" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
               <folding>
                 <element signature="method#addProjeto#0;class#Funcionalidades#0" expanded="false" />
                 <element signature="method#addAlunoProjeto#0;class#Funcionalidades#0" expanded="false" />
@@ -94,6 +93,7 @@
                 <element signature="method#alterarStatusProjeto#0;class#Funcionalidades#0" expanded="false" />
                 <element signature="method#addPublicacao#0;class#Funcionalidades#0" expanded="false" />
                 <element signature="method#relatorios#0;class#Funcionalidades#0" expanded="false" />
+                <element signature="method#consultas#0;class#Funcionalidades#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -102,23 +102,10 @@
       <file leaf-file-name="Projeto.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Projeto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="36" column="69" lean-forward="false" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
               <folding>
                 <element signature="method#alterarStatus#0;class#Projeto#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/base/Professor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-              <folding>
-                <element signature="method#Professor#0;class#Professor#0" expanded="false" />
-                <element signature="method#Professor#2;class#Professor#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -127,15 +114,25 @@
       <file leaf-file-name="Publicacoes.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Publicacoes.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="442">
               <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
               <folding>
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#757#758#0" expanded="true" />
                 <element signature="e#787#788#0" expanded="true" />
                 <element signature="e#839#840#0" expanded="true" />
-                <element signature="e#1667#1668#0" expanded="true" />
-                <element signature="e#1722#1723#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Professor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/base/Professor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+              <folding>
+                <element signature="e#284#285#0" expanded="true" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="method#Professor#2;class#Professor#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -144,21 +141,11 @@
       <file leaf-file-name="Usuario.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/base/Usuario.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="478">
+              <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding>
-                <element signature="e#793#794#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#870#871#0" expanded="true" />
-                <element signature="e#920#921#0" expanded="true" />
-                <element signature="e#951#952#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
-                <element signature="e#1018#1019#0" expanded="true" />
-                <element signature="e#1050#1051#0" expanded="true" />
-                <element signature="e#1152#1153#0" expanded="true" />
-                <element signature="e#1186#1187#0" expanded="true" />
-                <element signature="e#1401#1402#0" expanded="true" />
-                <element signature="e#1449#1450#0" expanded="true" />
+                <element signature="e#1446#1447#0" expanded="true" />
+                <element signature="e#1480#1481#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,27 +191,28 @@
         <option value="$PROJECT_DIR$/src/Usuario.java" />
         <option value="$PROJECT_DIR$/src/Funcionalidades.java" />
         <option value="$PROJECT_DIR$/src/Funcionalidades/Projeto.java" />
-        <option value="$PROJECT_DIR$/src/base/teste.java" />
-        <option value="$PROJECT_DIR$/src/base/Aluno.java" />
         <option value="$PROJECT_DIR$/src/Funcionalidades/Projetos.java" />
+        <option value="$PROJECT_DIR$/src/base/Main2.java" />
+        <option value="$PROJECT_DIR$/src/base/Dados.java" />
+        <option value="$PROJECT_DIR$/src/base/Publicacoes.java" />
+        <option value="$PROJECT_DIR$/src/base/Orientacoes.java" />
+        <option value="$PROJECT_DIR$/src/base/teste.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/base/Orientador.java" />
         <option value="$PROJECT_DIR$/src/base/Pesquisador.java" />
         <option value="$PROJECT_DIR$/src/base/Professor.java" />
-        <option value="$PROJECT_DIR$/src/base/Main2.java" />
+        <option value="$PROJECT_DIR$/src/base/Aluno.java" />
         <option value="$PROJECT_DIR$/src/base/Usuario.java" />
-        <option value="$PROJECT_DIR$/src/base/Dados.java" />
-        <option value="$PROJECT_DIR$/src/base/Publicacoes.java" />
         <option value="$PROJECT_DIR$/src/base/Projeto.java" />
         <option value="$PROJECT_DIR$/src/base/Funcionalidades.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1358" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="740" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -241,8 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,6 +275,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -564,8 +552,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-8" width="1378" height="740" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -576,19 +564,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37223974" sideWeight="0.5065886" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42698413" sideWeight="0.49341142" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4148265" sideWeight="0.49341142" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3069016" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30527085" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4530026" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4530026" sideWeight="0.49583334" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -602,7 +590,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="44" />
+      <option name="time" value="46" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -615,13 +603,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/base/Orientador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="93" lean-forward="false" selection-start-line="4" selection-start-column="93" selection-end-line="4" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Aluno.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -648,12 +629,8 @@
         <state relative-caret-position="442">
           <caret line="26" column="59" lean-forward="false" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -730,12 +707,8 @@
         <state relative-caret-position="442">
           <caret line="26" column="59" lean-forward="false" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -805,12 +778,8 @@
         <state relative-caret-position="442">
           <caret line="26" column="59" lean-forward="true" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -852,12 +821,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -876,7 +841,6 @@
     <entry file="file://$PROJECT_DIR$/src/Funcionalidades.java" />
     <entry file="file://$PROJECT_DIR$/src/Funcionalidades/teste.java" />
     <entry file="file://$PROJECT_DIR$/src/Funcionalidades/Projeto.java" />
-    <entry file="file://$PROJECT_DIR$/src/base/teste.java" />
     <entry file="file://$PROJECT_DIR$/src/Funcionalidades/Projetos.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_121/src.zip!/java/util/Scanner.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -915,53 +879,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Orientador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding>
-            <element signature="method#Orientador#0;class#Orientador#0" expanded="false" />
-            <element signature="method#Orientador#2;class#Orientador#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Professor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding>
-            <element signature="method#Professor#0;class#Professor#0" expanded="false" />
-            <element signature="method#Professor#2;class#Professor#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Pesquisador.java">
+    <entry file="file://$PROJECT_DIR$/src/base/Orientacoes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="43" lean-forward="false" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-          <folding>
-            <element signature="method#Pesquisador#0;class#Pesquisador#0" expanded="false" />
-            <element signature="method#Pesquisador#2;class#Pesquisador#0" expanded="false" />
-          </folding>
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/base/Aluno.java">
+    <entry file="file://$PROJECT_DIR$/src/base/teste.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="31" />
-          <folding>
-            <element signature="method#Aluno#0;class#Aluno#0" expanded="false" />
-            <element signature="method#Aluno#1;class#Aluno#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="18" column="20" lean-forward="false" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Dados.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
+        <state relative-caret-position="206">
           <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding>
             <element signature="method#printUsuarios#0;class#Dados#0" expanded="false" />
@@ -971,46 +907,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Orientador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="40" lean-forward="true" selection-start-line="3" selection-start-column="40" selection-end-line="3" selection-end-column="40" />
+          <folding>
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#321#322#0" expanded="true" />
+            <element signature="method#Orientador#2;class#Orientador#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Pesquisador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+          <folding>
+            <element signature="e#288#289#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="method#Pesquisador#2;class#Pesquisador#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Professor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding>
+            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="method#Professor#2;class#Professor#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/base/Aluno.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Usuario.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        <state relative-caret-position="478">
+          <caret line="68" column="5" lean-forward="false" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
-            <element signature="e#793#794#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1050#1051#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1186#1187#0" expanded="true" />
-            <element signature="e#1401#1402#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1446#1447#0" expanded="true" />
+            <element signature="e#1480#1481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="34" column="53" lean-forward="false" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Publicacoes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="442">
           <caret line="28" column="43" lean-forward="false" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#757#758#0" expanded="true" />
             <element signature="e#787#788#0" expanded="true" />
             <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#1667#1668#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Projeto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="308">
+          <caret line="36" column="69" lean-forward="false" selection-start-line="36" selection-start-column="69" selection-end-line="36" selection-end-column="69" />
           <folding>
             <element signature="method#alterarStatus#0;class#Projeto#0" expanded="false" />
           </folding>
@@ -1019,8 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/base/Funcionalidades.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="185" column="39" lean-forward="false" selection-start-line="185" selection-start-column="39" selection-end-line="185" selection-end-column="39" />
+        <state relative-caret-position="408">
+          <caret line="256" column="38" lean-forward="false" selection-start-line="256" selection-start-column="38" selection-end-line="256" selection-end-column="38" />
           <folding>
             <element signature="method#addProjeto#0;class#Funcionalidades#0" expanded="false" />
             <element signature="method#addAlunoProjeto#0;class#Funcionalidades#0" expanded="false" />
@@ -1029,16 +1005,7 @@
             <element signature="method#alterarStatusProjeto#0;class#Funcionalidades#0" expanded="false" />
             <element signature="method#addPublicacao#0;class#Funcionalidades#0" expanded="false" />
             <element signature="method#relatorios#0;class#Funcionalidades#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#consultas#0;class#Funcionalidades#0" expanded="false" />
           </folding>
         </state>
       </provider>

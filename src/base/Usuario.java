@@ -5,19 +5,23 @@ import java.util.ArrayList;
 public class Usuario {
     private String nome;
     private String email;
+    private int cpf;
+
     private ArrayList<Publicacoes> publicacoes = new ArrayList<Publicacoes>();
     private ArrayList<Projeto> projetos = new ArrayList<Projeto>();
 
-    public Usuario(String nome, String email, Publicacoes publicacoes, Projeto projetos) {
+    public Usuario(String nome, String email, Publicacoes publicacoes, Projeto projetos, int cpf){
         this.nome = nome;
         this.email = email;
         this.publicacoes.add(publicacoes);
         this.projetos.add(projetos);
+        this.cpf = cpf;
     }
 
-    public Usuario(String nome, String email) {
+    public Usuario(String nome, String email, int cpf) {
         this.nome = nome;
         this.email = email;
+        this.cpf = cpf;
     }
 
     public Usuario() {
@@ -51,12 +55,18 @@ public class Usuario {
         this.email = email;
     }
 
-    public void getPublicacoes()
-    {
-        for (int i = 0; i<publicacoes.size(); i++)
-        System.out.println(publicacoes.get(i).getTitulo());
+    public int getCpf() {
+        return cpf;
     }
 
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+
+    public ArrayList<Publicacoes> getPublicacoes() {
+        return publicacoes;
+    }
     public void setPublicacoes(Publicacoes publicacao) {
         this.publicacoes.add(publicacao);
     }

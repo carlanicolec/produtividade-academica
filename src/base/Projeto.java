@@ -34,7 +34,7 @@ public class Projeto {
         this.publicacoes_projeto.add(publicacoes_projeto);
     }
 
-    public Projeto(int id_projeto, String titulo, String data_inicio, String data_termino, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status) {
+    public Projeto(int id_projeto, String titulo, String data_inicio, String agencia_financiadora, double valor_financiado, String objetivo, String descricao, int status) {
         this.id_projeto = id_projeto;
         this.titulo = titulo;
         this.data_inicio = data_inicio;

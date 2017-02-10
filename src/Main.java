@@ -32,7 +32,7 @@ public class Main {
                nova_funcionalidade.addPublicacao(dados);
 
            }else if (opcao == 4){
-
+                nova_funcionalidade.consultas(dados);
            }
            else if (opcao == 5) {
                nova_funcionalidade.relatorios(dados);
