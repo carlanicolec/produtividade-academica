@@ -10,11 +10,28 @@ public class Funcionalidades extends Exception{
     Projeto novo_projeto = new Projeto();
     Professor novo_prof = new Professor();
     Pesquisador novo_pesq = new Pesquisador();
+    boolean done;
+    public void addProjeto(Dados dados) {
+        int id = 0;
+        done = false;
+        do {
+            try {
+                System.out.println("Insira o Id do projeto:");
+                id = Integer.parseInt(scan.nextLine());
+                for (int i =0; i<dados.todos_projetos.size();i++){
+                    if (dados.todos_projetos.get(i).getId_projeto() == id) throw new ExistingID();
+                }
+                done = true;
+            }catch (ExistingID e){
+                System.out.println(e);
+                System.out.println("o ID informado já é atrelado a um projeto\n");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
 
-    public void addProjeto(Dados dados){
+            }
+        }while (!done);
 
-        System.out.println("Insira o Id do projeto:");
-        int id = Integer.parseInt(scan.nextLine());
 
         System.out.println("Insira a data de início do projeto:");
         String data_inicio = scan.nextLine();
@@ -37,27 +54,59 @@ public class Funcionalidades extends Exception{
         String nome_orientador = scan.nextLine();
         System.out.println("Email do orientador:\n");
         String email_orientador = scan.nextLine();
-        System.out.println("CPF do orientador");
-        int cpf = Integer.parseInt(scan.nextLine());
-        System.out.println("Tipo orientador:\n" +
-                "1 - Professor\n" +
-                "2 - Pesquisador");
-        int tipo_orientador = Integer.parseInt(scan.nextLine());
+        done = false;
+        int cpf = 0;
+        do {
+            try {
+                System.out.println("CPF do orientador");
+                cpf = Integer.parseInt(scan.nextLine());
+                for (int i = 0; i < dados.todos_usuarios.size(); i++) {
+                    if (dados.todos_usuarios.get(i).getCpf() == cpf) throw new ExistingCPF();
+                }
+                done = true;
+            }catch (ExistingCPF e){
+                System.out.println(e);
+                System.out.println("CPF já atrelado a um usuário\n");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
 
-        if (tipo_orientador == 1) {
-            Professor novo_prof = new Professor(nome_orientador, email_orientador,cpf);
-            novo_projeto.addOrientador(novo_prof);
-            novo_prof.addNovoProjeto(novo_projeto);
-            dados.todos_usuarios.add(novo_prof);
-        } else if (tipo_orientador == 2) {
-            Pesquisador novo_pesq = new Pesquisador(nome_orientador, email_orientador,cpf);
-            novo_projeto.addOrientador(novo_pesq);
-            novo_pesq.addNovoProjeto(novo_projeto);
-            dados.todos_usuarios.add(novo_pesq);
-        }
+            }
+        }while (!done);
+
+        done = false;
+        do{
+            try {
+                System.out.println("Tipo orientador:\n" +
+                        "1 - Professor\n" +
+                        "2 - Pesquisador");
+                int tipo_orientador = Integer.parseInt(scan.nextLine());
+                if (tipo_orientador > 1 || tipo_orientador <2) throw new IntegerOutOfRangeException();
+                if (tipo_orientador == 1) {
+                    Professor novo_prof = new Professor(nome_orientador, email_orientador, cpf);
+                    novo_projeto.addOrientador(novo_prof);
+                    novo_prof.addNovoProjeto(novo_projeto);
+                    dados.todos_usuarios.add(novo_prof);
+                } else if (tipo_orientador == 2) {
+                    Pesquisador novo_pesq = new Pesquisador(nome_orientador, email_orientador, cpf);
+                    novo_projeto.addOrientador(novo_pesq);
+                    novo_pesq.addNovoProjeto(novo_projeto);
+                    dados.todos_usuarios.add(novo_pesq);
+                }
+                done = true;
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira o número 1 ou o número 2\n");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
     }
 
     public void addAlunoProjeto(int id_projeto, Dados dados) {
+        done =false;
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
                 if (dados.todos_projetos.get(i).getStatus() == 1) {
@@ -65,15 +114,44 @@ public class Funcionalidades extends Exception{
                     String nome_aluno = scan.nextLine();
                     System.out.println("Email do aluno:");
                     String email_aluno = scan.nextLine();
-                    System.out.println("CPF do aluno:");
-                    int cpf = Integer.parseInt(scan.nextLine());
-                    System.out.println("Insira a opção desejada:\n" +
-                            "1 - Aluno de graduação\n" +
-                            "2 - Aluno de mestrado\n" +
-                            "3 - Aluno de doutorado\n");
+                    int cpf = 0;
+                    do {
+                        try {
+                            System.out.println("CPF do aluno:");
+                            cpf = Integer.parseInt(scan.nextLine());
+                            for (int j = 0; j < dados.todos_usuarios.size(); j++) {
+                                if (dados.todos_usuarios.get(j).getCpf() == cpf) throw new ExistingCPF();
+                            }
+                            done = true;
+                        }catch (ExistingCPF e){
+                            System.out.println(e);
+                            System.out.println("CPF já atrelado a um usuário\n");
+                        }catch (NumberFormatException e){
+                            System.out.println(e);
+                            System.out.println("Insira um número inteiro\n");
 
-                    int tipo_aluno = Integer.parseInt(scan.nextLine());
+                        }
+                    }while (!done);
+                    done = false;
+                    int tipo_aluno = 0;
+                    do {
+                        try {
+                            System.out.println("Insira a opção desejada:\n" +
+                                    "1 - Aluno de graduação\n" +
+                                    "2 - Aluno de mestrado\n" +
+                                    "3 - Aluno de doutorado\n");
 
+                            tipo_aluno = Integer.parseInt(scan.nextLine());
+                            if (tipo_aluno < 1 || tipo_aluno > 3) throw new IntegerOutOfRangeException();
+                        }catch (IntegerOutOfRangeException e){
+                            System.out.println(e);
+                            System.out.println("Insira um número de 1 a 3");
+                        }catch (NumberFormatException e){
+                            System.out.println(e);
+                            System.out.println("Insira um número inteiro\n");
+
+                        }
+                    }while (!done);
                     Aluno novo_aluno = new Aluno(nome_aluno, email_aluno, tipo_aluno, cpf);
 
                     dados.todos_projetos.get(i).addAluno(novo_aluno);
@@ -87,33 +165,77 @@ public class Funcionalidades extends Exception{
     }
 
     public void editarProjeto(Dados dados){
-        System.out.println("Escolha a opção desejada:\n" +
-                "1 - Adicionar aluno\n" +
-                "2 - Adicionar orientador\n" +
-                "3 - Alterar status");
-        int opc = Integer.parseInt(scan.nextLine());
+        int opc = 0;
+        done = false;
+        do {
+            try {
+                System.out.println("Escolha a opção desejada:\n" +
+                        "1 - Adicionar aluno\n" +
+                        "2 - Adicionar orientador\n" +
+                        "3 - Alterar status");
+
+                opc = Integer.parseInt(scan.nextLine());
+                if (opc < 1 || opc > 3) throw new IntegerOutOfRangeException();
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira um número de 1 a 3");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
+        done = false;
+        int id_projeto = 0;
+        do {
+            try {
+                System.out.println("Informe o Id do projeto:\n");
+                id_projeto = Integer.parseInt(scan.nextLine());
+                int count = 0;
+                for (int i = 0; i<dados.todos_projetos.size(); i++){
+                    if (dados.todos_projetos.get(i).getId_projeto()!= id_projeto){
+                        count++;
+                    }
+                    if (count == dados.todos_projetos.size()){//se o count for igual ao size é pq percorreu todo o arraylist e não encontrou o id
+                        throw new EmptyID();
+                    }
+                }
+                done = true;
+            }catch (EmptyID e){
+                System.out.println(e);
+                System.out.println("Insira o ID de um projeto existente\n");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+            }
+        }while (!done);
+        done = false;
         if (opc == 1) {
-            System.out.println("Informe o Id do projeto:\n");
-            int id_projeto = Integer.parseInt(scan.nextLine());
             addAlunoProjeto(id_projeto, dados);
         } else if (opc == 2) {
-            System.out.println("Informe o Id do projeto:\n");
-            int id_projeto = Integer.parseInt(scan.nextLine());
-            System.out.println("Informe o tipo do orientador:\n 1 - Professor\n 2 - Pesquisador\n");
-            int tipo_orientador = Integer.parseInt(scan.nextLine());
-            if (tipo_orientador == 1) {
-                addOrientadorProjeto(id_projeto, dados, novo_prof);
-            } else if (tipo_orientador == 2) {
-                addOrientadorProjeto(id_projeto, dados, novo_pesq);
-            }
+            do {
+                try {
+                    System.out.println("Informe o tipo do orientador:\n 1 - Professor\n 2 - Pesquisador\n");
+                    int tipo_orientador = Integer.parseInt(scan.nextLine());
+                    if (tipo_orientador<1 || tipo_orientador >2) throw new IntegerOutOfRangeException();
+                    if (tipo_orientador == 1) {
+                        addOrientadorProjeto(id_projeto, dados, novo_prof);
+                    } else if (tipo_orientador == 2) {
+                        addOrientadorProjeto(id_projeto, dados, novo_pesq);
+                    }
+                }catch (IntegerOutOfRangeException e){
+                    System.out.println(e);
+                    System.out.println("Insira o número 1 ou o número 2\n");
+                }
+            }while (!done);
+            done = false;
         } else if (opc == 3) {
-            System.out.println("Informe o Id do projeto:\n");
-            int id_projeto = Integer.parseInt(scan.nextLine());
             alterarStatusProjeto(id_projeto, dados);
         }
     }
 
     public void addOrientadorProjeto(int id_projeto, Dados dados, Orientador orientador) {
+       done = false;
         for (int i = 0; i < dados.todos_projetos.size(); i++) {
 
             if (dados.todos_projetos.get(i).getId_projeto() == id_projeto) {
@@ -123,8 +245,26 @@ public class Funcionalidades extends Exception{
                     String nome_orientador = scan.nextLine();
                     System.out.println("Email do Orientador:\n");
                     String email_orientador = scan.nextLine();
-                    System.out.println("CPF do Orientador:");
-                    int cpf = Integer.parseInt(scan.nextLine());
+                    int cpf = 0;
+                    do {
+                        try {
+                            System.out.println("CPF do orientador:");
+                            cpf = Integer.parseInt(scan.nextLine());
+                            for (int j = 0; j < dados.todos_usuarios.size(); j++) {
+                                if (dados.todos_usuarios.get(j).getCpf() == cpf) throw new ExistingCPF();
+                            }
+                            done = true;
+                        }catch (ExistingCPF e){
+                            System.out.println(e);
+                            System.out.println("CPF já atrelado a um usuário\n");
+                        }catch (NumberFormatException e){
+                            System.out.println(e);
+                            System.out.println("Insira um número inteiro\n");
+
+                        }
+                    }while (!done);
+                    done = false;
+
                     orientador.setNome(nome_orientador);
                     orientador.setEmail(email_orientador);
                     orientador.setCpf(cpf);
@@ -136,7 +276,6 @@ public class Funcionalidades extends Exception{
                 }
             }
         }
-       // dados.printOrientadoresProjeto(1);
     }
 
     public void alterarStatusProjeto(int id_projeto, Dados dados) {
@@ -171,11 +310,52 @@ public class Funcionalidades extends Exception{
         String conferencia = scan.nextLine();
         System.out.println("Informe o ano da publicação:\n");
         int ano_publicacao = Integer.parseInt(scan.nextLine());
-        System.out.println("O autor já é cadastrado no sistema?\n 1 - Sim\n 2 - Não\n");
-        int opcao = Integer.parseInt(scan.nextLine());
+
+        int opcao = 0;
+        do {
+            try {
+                System.out.println("O autor já é cadastrado no sistema?\n 1 - Sim\n 2 - Não\n");
+                opcao = Integer.parseInt(scan.nextLine());
+
+                opcao = Integer.parseInt(scan.nextLine());
+                if (opcao < 1 || opcao> 2) throw new IntegerOutOfRangeException();
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira um número de 1 a 2");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
         if (opcao == 1){
-            System.out.println("Informe o CPF do autor:\n");
-            int cpf = Integer.parseInt(scan.nextLine());
+            int cpf = 0;
+            done = false;
+            do {
+                try {
+                    System.out.println("CPF do autor:");
+                    cpf = Integer.parseInt(scan.nextLine());
+                    int count = 0;
+                    for (int j = 0; j < dados.todos_usuarios.size(); j++) {
+                        if (dados.todos_usuarios.get(j).getCpf() != cpf){
+                            count++;
+                        }
+                        if (count ==  dados.todos_usuarios.size()){
+                            throw new EmptyCPF();
+                        }
+                    }
+                    done = true;
+                }catch (EmptyCPF e){
+                    System.out.println(e);
+                    System.out.println("CPF não cadastrado. Insira um CPF válido\n");
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                    System.out.println("Insira um número inteiro\n");
+
+                }
+            }while (!done);
+            done = false;
+
             for (int i = 0; i < dados.todos_usuarios.size(); i++){
                 if (dados.todos_usuarios.get(i).getCpf() == cpf){
                     autor = dados.todos_usuarios.get(i);
@@ -187,17 +367,71 @@ public class Funcionalidades extends Exception{
             autor.setNome(scan.nextLine());
             System.out.println("Informe o email do autor:\n");
             autor.setEmail(scan.nextLine());
-            System.out.println("Informe o CPF do autor:\n");
-            int cpf = Integer.parseInt(scan.nextLine());
+            int cpf = 0;
+            do {
+                try {
+                    System.out.println("Insira o CPF do autor:");
+                    cpf = Integer.parseInt(scan.nextLine());
+                    for (int j = 0; j < dados.todos_usuarios.size(); j++) {
+                        if (dados.todos_usuarios.get(j).getCpf() == cpf) throw new ExistingCPF();
+                    }
+                    done = true;
+                }catch (ExistingCPF e){
+                    System.out.println(e);
+                    System.out.println("CPF já atrelado a um usuário\n");
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                    System.out.println("Insira um número inteiro\n");
+
+                }
+            }while (!done);
+            done = false;
             autor.setCpf(cpf);
             dados.todos_usuarios.add(autor);
         }
         Publicacoes nova_publicacao = new Publicacoes(titulo,conferencia, ano_publicacao, autor);
-        System.out.println("Deseja atrelar a Publicação a um projeto existente?\n 1 - Sim\n 2 - Não\n");
-        int opc = Integer.parseInt(scan.nextLine());
+        int opc = 0;
+        do {
+            try {
+                System.out.println("Deseja atrelar a Publicação a um projeto existente?\n 1 - Sim\n 2 - Não\n");
+                opc = Integer.parseInt(scan.nextLine());
+                if (opc < 1 || opc > 2) throw new IntegerOutOfRangeException();
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira um número de 1 a 2");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
+
         if (opc ==1) {
-            System.out.println("Informe o id do projeto\n");
-            int id = Integer.parseInt(scan.nextLine());
+            int id = 0;
+            do {
+                try {
+                    System.out.println("Informe o Id do projeto:\n");
+                    id = Integer.parseInt(scan.nextLine());
+                    int count = 0;
+                    for (int i = 0; i<dados.todos_projetos.size(); i++){
+                        if (dados.todos_projetos.get(i).getId_projeto()!= id){
+                            count++;
+                        }
+                        if (count == dados.todos_projetos.size()){//se o count for igual ao size é pq percorreu todo o arraylist e não encontrou o id
+                            throw new EmptyID();
+                        }
+                    }
+                    done = true;
+                }catch (EmptyID e){
+                    System.out.println(e);
+                    System.out.println("Insira o ID de um projeto existente\n");
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                    System.out.println("Insira um número inteiro\n");
+                }
+            }while (!done);
+            done = false;
+
             for (int i = 0; i < dados.todos_projetos.size(); i++) {
                 if (dados.todos_projetos.get(i).getId_projeto() == id) {
                     if (dados.todos_projetos.get(i).getStatus() == 2){
@@ -209,7 +443,6 @@ public class Funcionalidades extends Exception{
 
                 }
             }
-
         }
 
         autor.addPublicacao(nova_publicacao);
@@ -218,60 +451,117 @@ public class Funcionalidades extends Exception{
     }
 
     public void relatorios(Dados dados){
-        System.out.println("Escolha o tipo de relatório desejado:\n" +
-                "1 - Número de colaboradores\n" +
-                "2 - Número de projetos em elaboração\n" +
-                "3 - Número de projetos em andamento\n" +
-                "4 - Número de projetos concluidos\n" +
-                "5 - Número total de projetos\n" +
-                "6 - Número de Publicações\n");
+        int opc = 0;
+        done = false;
+        do {
+            try {
+                System.out.println("Escolha o tipo de relatório desejado:\n" +
+                        "1 - Número de colaboradores\n" +
+                        "2 - Número de projetos em elaboração\n" +
+                        "3 - Número de projetos em andamento\n" +
+                        "4 - Número de projetos concluidos\n" +
+                        "5 - Número total de projetos\n" +
+                        "6 - Número de Publicações\n");
 
-        int escolha = Integer.parseInt(scan.nextLine());
-        if (escolha == 1) {
-            System.out.println("Número de colaboradores" + dados.todos_usuarios.size());
-        } else if (escolha == 2) {
+                opc = Integer.parseInt(scan.nextLine());
+                if (opc < 1 || opc > 6) throw new IntegerOutOfRangeException();
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira um número de 1 a 6");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
+        done = false;
+
+        if (opc == 1) {
+            System.out.println("Número de colaboradores " + dados.todos_usuarios.size());
+        } else if (opc == 2) {
             int count = 0;
             for (int i = 0; i < dados.todos_projetos.size(); i++) {
                 if (dados.todos_projetos.get(i).getStatus() == 1) {
                     count++;
                 }
             }
-            System.out.println("Número de projetos em elaboração" + count);
+            System.out.println("Número de projetos em elaboração " + count);
 
-        } else if (escolha == 3) {
+        } else if (opc == 3) {
             int count = 0;
             for (int i = 0; i < dados.todos_projetos.size(); i++) {
                 if (dados.todos_projetos.get(i).getStatus() == 2) {
                     count++;
                 }
             }
-            System.out.println("Número de projetos em andamento" + count);
+            System.out.println("Número de projetos em andamento " + count);
 
-        } else if (escolha == 4) {
+        } else if (opc == 4) {
             int count = 0;
             for (int i = 0; i < dados.todos_projetos.size(); i++) {
                 if (dados.todos_projetos.get(i).getStatus() == 3) {
                     count++;
                 }
             }
-            System.out.println("Número de projetos concluídos" + count);
+            System.out.println("Número de projetos concluídos " + count);
 
-        } else if (escolha == 5) {
-            System.out.println("Número total de projetos" + dados.todos_projetos.size());
-        } else if (escolha == 6) {
-            System.out.println("Número total de publicações" + dados.todas_publicacoes.size());
+        } else if (opc == 5) {
+            System.out.println("Número total de projetos " + dados.todos_projetos.size());
+        } else if (opc == 6) {
+            System.out.println("Número total de publicações " + dados.todas_publicacoes.size());
             }
         }
 
     public void consultas(Dados dados){
-        System.out.println("Escolha a opção de consulta desejada:\n"+
-                            "1 - Consulta por colaborador\n"+
-                            "2 - Consulta por projeto");
-        int opcao = Integer.parseInt(scan.nextLine());
+        int opcao = 0;
+        done = false;
+        do {
+            try {
+                System.out.println("Escolha a opção de consulta desejada:\n"+
+                        "1 - Consulta por colaborador\n"+
+                        "2 - Consulta por projeto");
+
+                opcao = Integer.parseInt(scan.nextLine());
+                if (opcao < 1 || opcao > 2) throw new IntegerOutOfRangeException();
+            }catch (IntegerOutOfRangeException e){
+                System.out.println(e);
+                System.out.println("Insira um número de 1 a 6");
+            }catch (NumberFormatException e){
+                System.out.println(e);
+                System.out.println("Insira um número inteiro\n");
+
+            }
+        }while (!done);
+        done = false;
 
         if (opcao == 1){
-            System.out.println("Insira o CPF do colaboraborador:");
-            int cpf = Integer.parseInt(scan.nextLine());
+            int cpf = 0;
+            done = false;
+            do {
+                try {
+                    System.out.println("Insira o CPF do colaborador:");
+                    cpf = Integer.parseInt(scan.nextLine());
+                    int count = 0;
+                    for (int j = 0; j < dados.todos_usuarios.size(); j++) {
+                        if (dados.todos_usuarios.get(j).getCpf() != cpf){
+                            count++;
+                        }
+                        if (count ==  dados.todos_usuarios.size()){
+                            throw new EmptyCPF();
+                        }
+                    }
+                    done = true;
+                }catch (EmptyCPF e){
+                    System.out.println(e);
+                    System.out.println("CPF não cadastrado. Insira um CPF válido\n");
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                    System.out.println("Insira um número inteiro\n");
+
+                }
+            }while (!done);
+            done = false;
+
             for (int i = 0; i<dados.todos_usuarios.size(); i++){
                 if (dados.todos_usuarios.get(i).getCpf() == cpf){
                     Usuario colaborador = dados.todos_usuarios.get(i);
@@ -291,8 +581,31 @@ public class Funcionalidades extends Exception{
             }
         }
         else if (opcao == 2){
-            System.out.println("Insira o ID do projeto:");
-            int id = Integer.parseInt(scan.nextLine());
+            done = false;
+            int id= 0;
+            do {
+                try {
+                    System.out.println("Informe o Id do projeto:\n");
+                    id = Integer.parseInt(scan.nextLine());
+                    int count = 0;
+                    for (int i = 0; i<dados.todos_projetos.size(); i++){
+                        if (dados.todos_projetos.get(i).getId_projeto()!= id){
+                            count++;
+                        }
+                        if (count == dados.todos_projetos.size()){//se o count for igual ao size é pq percorreu todo o arraylist e não encontrou o id
+                            throw new EmptyID();
+                        }
+                    }
+                    done = true;
+                }catch (EmptyID e){
+                    System.out.println(e);
+                    System.out.println("Insira o ID de um projeto existente\n");
+                }catch (NumberFormatException e){
+                    System.out.println(e);
+                    System.out.println("Insira um número inteiro\n");
+                }
+            }while (!done);
+
             for (int i = 0; i<dados.todos_projetos.size(); i++){
                 if (dados.todos_projetos.get(i).getId_projeto() == id){
                     Projeto projeto = dados.todos_projetos.get(i);
@@ -338,15 +651,6 @@ public class Funcionalidades extends Exception{
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         date = (java.util.Date)formatter.parse(data);
         return date;
-    }
-
-    public void compare(Date date1, Date date2) {
-        if(date1.compareTo(date2) == -1)
-            return 1;
-        if(date1.compareTo(date2) == 1)
-            return -1;
-        else
-            return 0;
     }
 
 
