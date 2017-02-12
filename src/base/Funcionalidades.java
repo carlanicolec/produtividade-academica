@@ -11,6 +11,7 @@ public class Funcionalidades extends Exception{
     Professor novo_prof = new Professor();
     Pesquisador novo_pesq = new Pesquisador();
     boolean done;
+
     public void addProjeto(Dados dados) {
         int id = 0;
         done = false;
@@ -32,9 +33,20 @@ public class Funcionalidades extends Exception{
             }
         }while (!done);
 
+        java.sql.Date data = null;
+        done = false;
+        do {
+            System.out.println("Insira a data de início do projeto:");
+            String data_inicio = scan.nextLine();
+            try{
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
+                data = new java.sql.Date(format.parse(data_inicio).getTime());
+                done = true;
+            }catch (Exception e) {
+                System.out.println("Insira uma data no formato dd/mm/aa \n");
+            }
+        }while (!done);
 
-        System.out.println("Insira a data de início do projeto:");
-        String data_inicio = scan.nextLine();
         System.out.println("Insira o título do projeto:");
         String titulo = scan.nextLine();
         System.out.println("Insira o nome da agência financiadora do projeto:");
@@ -46,7 +58,7 @@ public class Funcionalidades extends Exception{
         System.out.println("Insira a descrição do projeto:");
         String descricao = scan.nextLine();
 
-        Projeto novo_projeto = new Projeto(id, titulo, data_inicio, agencia, valor, objetivo, descricao, 1);
+        Projeto novo_projeto = new Projeto(id, titulo, data, agencia, valor, objetivo, descricao, 1);
 
         dados.addProjeto(novo_projeto);
 
@@ -75,24 +87,15 @@ public class Funcionalidades extends Exception{
         }while (!done);
 
         done = false;
+        int tipo_orientador = 0;
         do{
             try {
                 System.out.println("Tipo orientador:\n" +
                         "1 - Professor\n" +
                         "2 - Pesquisador");
-                int tipo_orientador = Integer.parseInt(scan.nextLine());
-                if (tipo_orientador > 1 || tipo_orientador <2) throw new IntegerOutOfRangeException();
-                if (tipo_orientador == 1) {
-                    Professor novo_prof = new Professor(nome_orientador, email_orientador, cpf);
-                    novo_projeto.addOrientador(novo_prof);
-                    novo_prof.addNovoProjeto(novo_projeto);
-                    dados.todos_usuarios.add(novo_prof);
-                } else if (tipo_orientador == 2) {
-                    Pesquisador novo_pesq = new Pesquisador(nome_orientador, email_orientador, cpf);
-                    novo_projeto.addOrientador(novo_pesq);
-                    novo_pesq.addNovoProjeto(novo_projeto);
-                    dados.todos_usuarios.add(novo_pesq);
-                }
+                tipo_orientador = Integer.parseInt(scan.nextLine());
+                System.out.println(tipo_orientador);
+                if (tipo_orientador < 1 || tipo_orientador > 2) throw new IntegerOutOfRangeException();
                 done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
@@ -103,6 +106,21 @@ public class Funcionalidades extends Exception{
 
             }
         }while (!done);
+
+        if (tipo_orientador == 1) {
+            Professor novo_prof = new Professor(nome_orientador, email_orientador, cpf);
+            novo_projeto.addOrientador(novo_prof);
+            novo_prof.addNovoProjeto(novo_projeto);
+            dados.todos_usuarios.add(novo_prof);
+        } else if (tipo_orientador == 2) {
+            Pesquisador novo_pesq = new Pesquisador(nome_orientador, email_orientador, cpf);
+            novo_projeto.addOrientador(novo_pesq);
+            novo_pesq.addNovoProjeto(novo_projeto);
+            dados.todos_usuarios.add(novo_pesq);
+        }
+
+
+
     }
 
     public void addAlunoProjeto(int id_projeto, Dados dados) {
@@ -143,6 +161,7 @@ public class Funcionalidades extends Exception{
 
                             tipo_aluno = Integer.parseInt(scan.nextLine());
                             if (tipo_aluno < 1 || tipo_aluno > 3) throw new IntegerOutOfRangeException();
+                            done = true;
                         }catch (IntegerOutOfRangeException e){
                             System.out.println(e);
                             System.out.println("Insira um número de 1 a 3");
@@ -176,6 +195,7 @@ public class Funcionalidades extends Exception{
 
                 opc = Integer.parseInt(scan.nextLine());
                 if (opc < 1 || opc > 3) throw new IntegerOutOfRangeException();
+                done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
                 System.out.println("Insira um número de 1 a 3");
@@ -213,22 +233,24 @@ public class Funcionalidades extends Exception{
         if (opc == 1) {
             addAlunoProjeto(id_projeto, dados);
         } else if (opc == 2) {
+            int tipo_orientador = 0;
             do {
                 try {
                     System.out.println("Informe o tipo do orientador:\n 1 - Professor\n 2 - Pesquisador\n");
-                    int tipo_orientador = Integer.parseInt(scan.nextLine());
-                    if (tipo_orientador<1 || tipo_orientador >2) throw new IntegerOutOfRangeException();
-                    if (tipo_orientador == 1) {
-                        addOrientadorProjeto(id_projeto, dados, novo_prof);
-                    } else if (tipo_orientador == 2) {
-                        addOrientadorProjeto(id_projeto, dados, novo_pesq);
-                    }
+                    tipo_orientador = Integer.parseInt(scan.nextLine());
+                    if (tipo_orientador < 1 || tipo_orientador > 2) throw new IntegerOutOfRangeException();
+                    done = true;
                 }catch (IntegerOutOfRangeException e){
                     System.out.println(e);
                     System.out.println("Insira o número 1 ou o número 2\n");
                 }
             }while (!done);
             done = false;
+            if (tipo_orientador == 1) {
+                addOrientadorProjeto(id_projeto, dados, novo_prof);
+            } else if (tipo_orientador == 2) {
+                addOrientadorProjeto(id_projeto, dados, novo_pesq);
+            }
         } else if (opc == 3) {
             alterarStatusProjeto(id_projeto, dados);
         }
@@ -288,9 +310,21 @@ public class Funcionalidades extends Exception{
                     System.out.println("Status alterado para 'Em andamento'");
                 } else if (status == 2) {
                     if (dados.todos_projetos.get(i).getPublicacoes_projeto().size() > 0) {//verificar por size
-                        System.out.println("Insira a data de hoje: ");
-                        String data_termino = scan.nextLine();
-                        dados.todos_projetos.get(i).setData_termino(data_termino);
+                        java.sql.Date data = null;
+                        done = false;
+                        do {
+                            System.out.println("Insira a data de término do projeto:");
+                            String data_termino = scan.nextLine();
+                            try{
+                                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yy");
+                                data = new java.sql.Date(format.parse(data_termino).getTime());
+                                done = true;
+                            }catch (Exception e) {
+                                System.out.println("Insira uma data no formato dd/mm/aa \n");
+                            }
+                        }while (!done);
+
+                        dados.todos_projetos.get(i).setData_termino(data);
                         dados.todos_projetos.get(i).alterarStatus(3);
                         System.out.println("Status alterado para 'Concluído'");
                     }else {
@@ -316,9 +350,8 @@ public class Funcionalidades extends Exception{
             try {
                 System.out.println("O autor já é cadastrado no sistema?\n 1 - Sim\n 2 - Não\n");
                 opcao = Integer.parseInt(scan.nextLine());
-
-                opcao = Integer.parseInt(scan.nextLine());
-                if (opcao < 1 || opcao> 2) throw new IntegerOutOfRangeException();
+                if (opcao < 1 || opcao > 2) throw new IntegerOutOfRangeException();
+                done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
                 System.out.println("Insira um número de 1 a 2");
@@ -396,6 +429,7 @@ public class Funcionalidades extends Exception{
                 System.out.println("Deseja atrelar a Publicação a um projeto existente?\n 1 - Sim\n 2 - Não\n");
                 opc = Integer.parseInt(scan.nextLine());
                 if (opc < 1 || opc > 2) throw new IntegerOutOfRangeException();
+                done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
                 System.out.println("Insira um número de 1 a 2");
@@ -465,6 +499,7 @@ public class Funcionalidades extends Exception{
 
                 opc = Integer.parseInt(scan.nextLine());
                 if (opc < 1 || opc > 6) throw new IntegerOutOfRangeException();
+                done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
                 System.out.println("Insira um número de 1 a 6");
@@ -523,6 +558,7 @@ public class Funcionalidades extends Exception{
 
                 opcao = Integer.parseInt(scan.nextLine());
                 if (opcao < 1 || opcao > 2) throw new IntegerOutOfRangeException();
+                done = true;
             }catch (IntegerOutOfRangeException e){
                 System.out.println(e);
                 System.out.println("Insira um número de 1 a 6");
@@ -536,7 +572,6 @@ public class Funcionalidades extends Exception{
 
         if (opcao == 1){
             int cpf = 0;
-            done = false;
             do {
                 try {
                     System.out.println("Insira o CPF do colaborador:");
