@@ -1,8 +1,6 @@
 package base;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Funcionalidades extends Exception{
@@ -29,7 +27,6 @@ public class Funcionalidades extends Exception{
             }catch (NumberFormatException e){
                 System.out.println(e);
                 System.out.println("Insira um número inteiro\n");
-
             }
         }while (!done);
 
@@ -603,6 +600,11 @@ public class Funcionalidades extends Exception{
                     System.out.println("Nome do colaborador: " + colaborador.getNome()+"\n");
                     System.out.println("Email do colaborador: " + colaborador.getEmail()+"\n");
                     System.out.println("Projetos:");
+
+
+
+
+
                     for (int j = 0; j<colaborador.getProjetos().size(); j++){
                         System.out.println( "Título do projeto " + colaborador.getProjetos().get(j).getTitulo()+"\n"+
                                             "Data de término "+ colaborador.getProjetos().get(j).getData_termino()+"\n");
@@ -680,13 +682,5 @@ public class Funcionalidades extends Exception{
 
 
     }
-
-    public static Date formataData(String data) throws Exception {
-        Date date = null;
-        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        date = (java.util.Date)formatter.parse(data);
-        return date;
-    }
-
 
 }

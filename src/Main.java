@@ -25,7 +25,7 @@ public class Main {
                             "0 - Sair\n");
 
                     opcao = Integer.parseInt(scan.nextLine());
-                    if(opcao < 0 || opcao >5) throw new IntegerOutOfRangeException();
+                    if (opcao < 0 || opcao > 5) throw new IntegerOutOfRangeException();
                     if (opcao == 1) {
                         nova_funcionalidade.addProjeto(dados);
                     } else if (opcao == 2) {
@@ -39,15 +39,16 @@ public class Main {
                         nova_funcionalidade.relatorios(dados);
                     }
                     done = true;
-                }catch(NumberFormatException e){
+                } catch (NumberFormatException e) {
                     System.out.println(e);
                     System.out.println("Insira um número inteiro\n");
-                }catch (IntegerOutOfRangeException e){
+                } catch (IntegerOutOfRangeException e) {
                     System.out.println(e);
                     System.out.println("Insira um número entre 0 e 5\n");
+                } catch (java.lang.NullPointerException e) {
+                    System.out.println(e);
                 }
             }while (!done);
         }
-        System.exit(0);
     }
 }
